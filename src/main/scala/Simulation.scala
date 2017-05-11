@@ -2,22 +2,16 @@ import scala.collection.immutable.HashMap
 import scala.io.Source
 
 object Simulation {
-  def createLD(language: String, sentencesFileName: String): Unit = {
+  def createLD(language: String, sentencesFileName: String): Vector[Vector[String]] = {
     val languageHash = HashMap("english" -> "611",
       "french" -> "584", "german" -> "2253", "japanese" -> "3856")
     val langNum = languageHash.get(language)
 
-    Source
-      .fromFile("files/ChargeNames")
-      .getLines
-      .map { line =>
-        //do stuff with line like
-        line.split('\t').filter(l => l(0) == langNum)
-      }
-      .foreach(println)
-
-    //return Source.fromFile(sentencesFileName).getLines().split('\t').toArray
-    //return Source.fromFile(sentencesFileName).getLines().split('\t').filter(l => l.0 == langNum)
+    return Source
+            .fromFile("EngFrJapGerm.txt")
+            .getLines.map{line => line.split('\t').toVector}
+            .filter(l => l(0) == "611")
+            .toVector
   }
 
   def main(args: Array[String]) = {
@@ -31,7 +25,11 @@ object Simulation {
         System.exit(1)
       }
 
-      println(createLD("english", "EngFrJapGerm.txt"))
+      sentences = createLD("english", "EngFrJapGerm.txt")
+
+      println("Starting simulation")
+      for (i <- 0 to numLearners)
+        println(i)
     }
 
     catch { case e: java.lang.NumberFormatException =>
