@@ -116,8 +116,8 @@ class Child(lr: Double, conslr: Double) {
   }
 
   def piEtrigger(grammar: Vector[Double], s: Sentence): Vector[Double] = {
-    val pIndex = s.sentenceList.indexOf("P")
-    val O3index = s.sentenceList.indexOf("O3")
+    val pIndex = s.sentenceList.indexWhere(_.contains("P"))
+    val O3index = s.sentenceList.indexWhere(_.contains("O3"))
 
     if (pIndex >= 0 && O3index >= 0){
       if (abs(pIndex - O3index) > 1){
@@ -144,8 +144,8 @@ class Child(lr: Double, conslr: Double) {
   }
 
   def VtoIEtrigger(grammar: Vector[Double], s: Sentence): Vector[Double] = {
-    val verbIndex = s.sentenceList.indexOf("O1")
-    val O1index = s.sentenceList.indexOf("O2")
+    val verbIndex = s.sentenceList.indexWhere(_.contains("Verb"))
+    val O1index = s.sentenceList.indexWhere(._contains("O1"))
 
     if (verbIndex >= 0 && O1index >= 0){
       if (O1index != 0 && abs(verbIndex - O1index) > 1){
@@ -199,6 +199,26 @@ class Child(lr: Double, conslr: Double) {
           adjustweight(grammar, 10, 0, r)
         }
       }
+    }
+  }
+
+  def ahEtrigger(grammar: Vector[Double], s: Sentence): Vector[Double] = {
+    if (s.inflection == "DEC" || s.inflection == "Q") {
+      if (!s.sentenceStr.contains("Aux") && s.sentenceStr.contains("Never")){
+        if (s.sentenceStr.contains("Verb") && s.sentenceStr.contains("O1")) {
+          val neverPos =  s.sentenceList.indexWhere(_.contains("Never"))
+          val verbPos = s.sentenceList.indexWhere(_.contains("Verb"))
+          val O1Pos = s.sentenceList.indexWhere(_.contains("O1"))
+
+          if ((neverPos > -1 && verbPos == neverPos + 1 && O1Pos == verbPos + 1) ||
+            (O1Pos > -1 && verbPos == O1Pos + 1 && neverPos == verbPos + 1)) {
+              adjustweight(adjustweight(grammar, 11, 1, r), 9, 0, r)
+            }
+        }
+      }
+    }
+    else if (s.sentenceStr.contains("Aux") && grammar[11] <= 0.5) {
+      adjustweight(grammar, 11, 0, conservativerate)
     }
   }
 
