@@ -14,6 +14,10 @@ object Simulation {
             .toVector
   }
 
+  def runSim(i: Int, n: Int): Vector[Vector[Vector[Double], Vector[Double]]] =
+      if i == n: return []
+      else:
+
   def main(args: Array[String]) = {
     try {
       val numLearners = args(0).toInt
@@ -26,8 +30,10 @@ object Simulation {
       }
 
       sentences = createLD("english", "EngFrJapGerm.txt")
+      res = new Results(s"$language-simulation-output.csv")
 
       println("Starting simulation")
+      val results =
       for (i <- 0 to numLearners)
         println(i)
     }

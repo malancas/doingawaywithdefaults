@@ -9,4 +9,5 @@ lazy val root = (project in file(".")).
     )),
     name := "Hello",
     libraryDependencies += scalaTest % Test
+    libraryDependencies += "com.github.tototoshi" %% "scala-csv" % "1.3.4"
   )
