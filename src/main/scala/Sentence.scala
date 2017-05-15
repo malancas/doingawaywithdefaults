@@ -4,7 +4,7 @@ class Sentence(sentenceInfo: List[String]) {
   val language:String = sentenceInfo.head
   val inflection:String = sentenceInfo(1)
   val sentenceStr:String = sentenceInfo(2)
-  val sentenceVec:Vector[String] = sentenceInfo(2).split.toVector
+  val sentenceVec:Vector[String] = sentenceInfo(2).split(" ").toVector
 
   // Checks if something other than subject has been  topicalized ie. moved
   // out of canonical argument order. Not checking for presence of Adv

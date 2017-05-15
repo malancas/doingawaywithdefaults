@@ -6070,7 +6070,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 914ms :: artifacts dl 17ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 936ms :: artifacts dl 18ms[0m
 [0m[[0mdebug[0m] [0m	report for default#mfork-doingawaywithdefaults-build;0.1-SNAPSHOT compile produced in /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/project/target/resolution-cache/reports/default-mfork-doingawaywithdefaults-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#mfork-doingawaywithdefaults-build;0.1-SNAPSHOT runtime produced in /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/project/target/resolution-cache/reports/default-mfork-doingawaywithdefaults-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#mfork-doingawaywithdefaults-build;0.1-SNAPSHOT test produced in /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/project/target/resolution-cache/reports/default-mfork-doingawaywithdefaults-build-test.xml[0m
@@ -6084,5 +6084,5 @@
 [0m[[0mdebug[0m] [0m	report for default#mfork-doingawaywithdefaults-build;0.1-SNAPSHOT docs produced in /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/project/target/resolution-cache/reports/default-mfork-doingawaywithdefaults-build-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#mfork-doingawaywithdefaults-build;0.1-SNAPSHOT pom produced in /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/project/target/resolution-cache/reports/default-mfork-doingawaywithdefaults-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#mfork-doingawaywithdefaults-build;0.1-SNAPSHOT scala-tool produced in /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/project/target/resolution-cache/reports/default-mfork-doingawaywithdefaults-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (914ms resolve - 17ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (936ms resolve - 18ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
