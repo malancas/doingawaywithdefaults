@@ -30,12 +30,12 @@ class Child(lr: Double, conslr: Double) {
       // Make sure O1 is non-sentence-initial and before S
       if (O1index > 0 && O1index < s.sentenceList.indexOf("S")){
         // set towards Subject final
-        adjustweight(0, 1, learningrate)
+        adjustweight(grammar, 0, 1, learningrate)
       }
       // S occurs before 01
       else if (O1index > 0 && O1index > s.sentenceList.indexOf("S")){
         // set towards Subject initial
-        adjustweight(0, 0, learningrate)
+        adjustweight(grammar, 0, 0, learningrate)
       }
     }
   }
@@ -47,10 +47,10 @@ class Child(lr: Double, conslr: Double) {
       val Pindex = s.sentenceList.index("P")
       // O3 followed by P and not topicalized
       if (O3index > 0 && Pindex == O3index + 1){
-        adjustweight (1, 1, self.r)
+        adjustweight (grammar, 1, 1, r)
       }
       else if (O3index > 0 && Pindex == O3index - 1){
-        adjustweight (1, 0, self.r)
+        adjustweight (grammar, 1, 0, r)
       }
     }
 
@@ -58,10 +58,10 @@ class Child(lr: Double, conslr: Double) {
     // If imperative, make sure Verb directly follows O1
     else if (s.inflection == "IMP" && s.sentenceList.contains("O1") and s.sentenceList.contains("Verb") {
       if (s.sentenceList.indexOf("O1") == s.sentenceList.indexOf("Verb") - 1){
-        self.adjustweight (1, 1, self.r)
+        adjustweight (grammar, 1, 1, r)
       }
       else if (s.sentenceList.indexOf("Verb") == (s.sentenceList.indexOf("O1") - 1)){
-        self.adjustweight(1, 0, self.r)
+        adjustweight(grammar, 1, 0, r)
       }
     }
   }
@@ -70,10 +70,10 @@ class Child(lr: Double, conslr: Double) {
     if (s.inflection == "Q"){
       val kaIndex = s.sentenceList.indexOf("ka")
       if (s.sentenceList[-1] == "ka" || (kaIndex == -1 && s.sentenceList[-1] == "Aux")){
-        self.adjustweight(2, 1, self.r)
+        adjustweight(grammar, 2, 1, r)
       }
       else if (s.sentenceList[0] == "ka" || (kaIndx == -1 && s.sentenceList[0] == "Aux")){
-        self.adjustweight(2, 1, self.r)
+        adjustweight(grammar, 2, 1, r)
       }
     }
   }
@@ -82,10 +82,10 @@ class Child(lr: Double, conslr: Double) {
     val outObliqueResult = s.outOblique()
     val sInSentence = s.sentenceStr.contains("S")
     if (s.inflection == "DEC" && (!sInSentence && outObliqueResult)){
-      self.adjustweight(4, 1, self.r)
+      adjustweight(grammar, 4, 1, r)
     }
     else if (s.inflection == "DEC" && (sInSentence && outObliqueResult)){
-      self.adjustweight(4, 0, self.conservativerate)
+      adjustweight(grammar, 4, 0, conservativerate)
     }
   }
 
@@ -94,12 +94,12 @@ class Child(lr: Double, conslr: Double) {
     val O1inSentence = s.sentenceStr.contains("O1")
 
     if (s.inflection == "DEC" && (O2inSentence && !O1inSentence)){
-      self.adjustweight(5, 1, self.r)
+      adjustweight(grammar, 5, 1, self.r)
     }
     else if (s.inflection == "DEC" && (O2inSentence && O1inSentence) &&
       s.sentenceStr.contains("O3") && s.sentenceStr.contains("S") &&
       s.sentenceStr.contains("Adv")){
-        self.adjustweight(5, 0, self.conservativerate)
+        adjustweight(grammar, 5, 0, conservativerate)
       }
   }
 
@@ -107,10 +107,10 @@ class Child(lr: Double, conslr: Double) {
     if (s.inflection == "Q" && s.sentenceStr.contains("+WH")){
       if (s.sentenceList[0].contains("+WH") ||
         (s.sentenceList[0] == "P" && s.sentenceList[1] == "O3[+WH]")){
-          adjustweight(6, 1, conservativerate)
+          adjustweight(grammar, 6, 1, conservativerate)
         }
       else {
-        adjustweight(6, 0, r)
+        adjustweight(grammar, 6, 0, r)
       }
     }
   }
@@ -121,17 +121,17 @@ class Child(lr: Double, conslr: Double) {
 
     if (pIndex >= 0 && O3index >= 0){
       if (abs(pIndex - O3index) > 1){
-        adjustweight(7, 1, r)
+        adjustweight(grammar, 7, 1, r)
       }
       else if (pIndex + O3index == 1){
-        adjustweight(7, 0, r)
+        adjustweight(grammar, 7, 0, r)
       }
     }
   }
 
   def tmEtrigger(grammar: Vector[Double], s: Sentence): Vector[Double] = {
     if (s.sentenceStr.contains("[+WA]")){
-      adjustweight(8, 1, r)
+      adjustweight(grammar, 8, 1, r)
     }
     else {
       val O1index = s.sentenceList.indexOf("O1")
@@ -179,6 +179,25 @@ class Child(lr: Double, conslr: Double) {
     else if (sp > 0.5 && hip < 0.5 && hcp > 0.5 && s.inflection == "DEC"){
       if (s.sentenceList.indexOf("Verb") == s.sentenceList.indexOf("Aux") + 1){
         adjustweight(grammar, 10, 0, r)
+      }
+    }
+    else if (sp < 0.5 && hip > 0.5 && hcp < 0.5 && s.inflection == "DEC"){
+      if (s.sentenceList.indexOf("Aux") == s.sentenceList.indexOf("Verb") + 1){
+        adjustweight(grammar, 10, 0, r)
+      }
+    }
+    else if (sp > 0.5 && hip < 0.5 && hcp < 0.5 && s.sentenceStr.contains("ka")){
+      if (s.inflection == "DEC" && !s.sentenceStr.contains("Aux")){
+        if (s.sentenceList.indexOf("Verb") == s.sentenceList.indexOf("Never") + 1){
+          adjustweight(grammar, 10, 0, r)
+        }
+      }
+    }
+    else if (sp < 0.5 && hip > 0.5 && hcp > 0.5 and s.sentenceStr.contains("ka")){
+      if (s.inflection == "DEC" && !s.sentenceStr.contains("Aux")){
+        if (s.sentenceList.indexOf("Never") == s.sentenceList.indexOf("Verb") + 1){
+          adjustweight(grammar, 10, 0, r)
+        }
       }
     }
   }
