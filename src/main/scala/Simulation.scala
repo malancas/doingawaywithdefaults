@@ -1,3 +1,4 @@
+import results.Results
 import scala.collection.immutable.HashMap
 import scala.io.Source
 
@@ -14,11 +15,15 @@ object Simulation {
             .toVector
   }
 
-  def runSim(i: Int, n: Int): Vector[Vector[Vector[Double], Vector[Double]]] =
-      if i == n: return []
-      else:
+  def test1(i: Int): Int = {
+    i + 1
+  }
 
-  def main(args: Array[String]) = {
+  def test2(i: Int): Int = {
+    i * 4
+  }
+
+  def main(args: Array[String]) {
     try {
       val numLearners = args(0).toInt
       val numSentences = args(1).toInt
@@ -29,13 +34,14 @@ object Simulation {
         System.exit(1)
       }
 
-      sentences = createLD("english", "EngFrJapGerm.txt")
-      res = new Results(s"$language-simulation-output.csv")
+      val sentences = createLD("english", "EngFrJapGerm.txt")
+      val res = new Results(s"$language-simulation-output.csv")
 
       println("Starting simulation")
-      val results =
-      for (i <- 0 to numLearners)
-        println(i)
+
+      println(test1(1).test2(_))
+      //for (i <- 0 to numLearners)
+      //  println(i)
     }
 
     catch { case e: java.lang.NumberFormatException =>

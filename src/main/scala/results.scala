@@ -1,3 +1,5 @@
+package results
+
 import com.github.tototoshi.csv._
 
 class Results(file: String) {
