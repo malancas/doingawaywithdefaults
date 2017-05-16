@@ -16,10 +16,10 @@ class Sentence(sentenceInfo: List[String]) {
     val Pindex = sentenceVec.indexWhere(_.contains("P"))
     val O3index = sentenceVec.indexWhere(_.contains("O3"))
 
-    if (O1index != -1 && O1index < O2index < Pindex && O3index == Pindex+1) {
+    if (O1index != -1 && O1index < O2index && O2index < Pindex && O3index == Pindex+1) {
       Some(false)
     }
-    else if (O3index != -1 && O3index < O2index < O1index && Pindex == O3index+1) {
+    else if (O3index != -1 && O3index < O2index && O2index < O1index && Pindex == O3index+1) {
       Some(false)
     }
     else if (O1index != -1 && O2index != -1 && Pindex != -1 && O3index != -1) {

@@ -5,7 +5,7 @@ class Child(lr: Double, conslr: Double) {
   val conservativerate: Double = conslr
 
   // child is fed a list containing [lang, inflec, sentencestring]
-  def consumeSentence(sentence: String):Vector[Vector[Double], Vector[Double]] = {
+  def consumeSentence(s: Sentence): Vector[Double] = {
     spEtrigger(s)    // parameter 1
     hipEtrigger(s)   // parameter 2
     hcpEtrigger(s)   // parameter 3
