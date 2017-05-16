@@ -15,13 +15,9 @@ object Simulation {
             .toVector
   }
 
-  def test1(i: Int): Int = {
-    i + 1
-  }
+  val test1 = (i: Int) => {i + 1}
 
-  def test2(i: Int): Int = {
-    i * 4
-  }
+  val test2 = (i: Int) => {i * 4}
 
   def main(args: Array[String]) {
     try {
@@ -39,7 +35,8 @@ object Simulation {
 
       println("Starting simulation")
 
-      println(test1(1).test2(_))
+      val x = 1
+      println((test1 andThen test2)(x))
       //for (i <- 0 to numLearners)
       //  println(i)
     }
