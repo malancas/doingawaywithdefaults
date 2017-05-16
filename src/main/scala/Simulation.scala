@@ -1,4 +1,4 @@
-import results.Results
+//import results.Results
 import scala.collection.immutable.HashMap
 import scala.io.Source
 
@@ -31,7 +31,7 @@ object Simulation {
       }
 
       val sentences = createLD("english", "EngFrJapGerm.txt")
-      val res = new Results(s"$language-simulation-output.csv")
+      //val res = new Results(s"$language-simulation-output.csv")
 
       println("Starting simulation")
 

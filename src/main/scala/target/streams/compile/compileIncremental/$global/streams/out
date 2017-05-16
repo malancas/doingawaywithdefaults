@@ -18,62 +18,25 @@
 [0m[[0minfo[0m] [0mCompiling 4 Scala sources to /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/target/scala-2.10/classes...[0m
 [0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.13:component from component compiler for Scala 2.10.6[0m
 [0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.13:component from component compiler for Scala 2.10.6[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 7dc8f93a, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 699c739d, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
 [0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes:/home/malancas/.sbt/boot/scala-2.10.6/lib/scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
 [0m[[0mdebug[0m] [0m	/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/target/scala-2.10/classes[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:9: not enough arguments for method spEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    spEtrigger(s)    // parameter 1[0m
-[0m[[31merror[0m] [0m              ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:10: not enough arguments for method hipEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    hipEtrigger(s)   // parameter 2[0m
-[0m[[31merror[0m] [0m               ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:11: not enough arguments for method hcpEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    hcpEtrigger(s)   // parameter 3[0m
-[0m[[31merror[0m] [0m               ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:13: not enough arguments for method nsEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    nsEtrigger(s)    // parameter 5[0m
-[0m[[31merror[0m] [0m              ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:14: not enough arguments for method ntEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    ntEtrigger(s)    // parameter 6[0m
-[0m[[31merror[0m] [0m              ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:15: not enough arguments for method whmEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    whmEtrigger(s)   // parameter 7[0m
-[0m[[31merror[0m] [0m               ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:16: not enough arguments for method piEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    piEtrigger(s)    // parameter 8[0m
-[0m[[31merror[0m] [0m              ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:17: not enough arguments for method tmEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    tmEtrigger(s)    // parameter 9[0m
-[0m[[31merror[0m] [0m              ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:18: not enough arguments for method VtoIEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    VtoIEtrigger(s)  // parameter 10[0m
-[0m[[31merror[0m] [0m                ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:20: not enough arguments for method ahEtrigger: (grammar: Vector[Double], s: Sentence.Sentence)Vector[Double].[0m
-[0m[[31merror[0m] [0mUnspecified value parameter s.[0m
-[0m[[31merror[0m] [0m    ahEtrigger(s)    // parameter 12[0m
-[0m[[31merror[0m] [0m              ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:92: type mismatch;[0m
+[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:83: type mismatch;[0m
 [0m[[31merror[0m] [0m found   : Option[Boolean][0m
 [0m[[31merror[0m] [0m required: Boolean[0m
 [0m[[31merror[0m] [0m    if (s.inflection == "DEC" && (!sInSentence && outObliqueResult)){[0m
 [0m[[31merror[0m] [0m                                                  ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:95: type mismatch;[0m
+[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:86: type mismatch;[0m
 [0m[[31merror[0m] [0m found   : Option[Boolean][0m
 [0m[[31merror[0m] [0m required: Boolean[0m
 [0m[[31merror[0m] [0m    else if (s.inflection == "DEC" && (sInSentence && outObliqueResult)){[0m
 [0m[[31merror[0m] [0m                                                      ^[0m
+[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:9: value andThen is not a member of (Vector[Double], Sentence.Sentence) => Vector[Double][0m
+[0m[[31merror[0m] [0m    (spEtrigger andThen hipEtrigger andThen hcpEtrigger andThen[0m
+[0m[[31merror[0m] [0m                ^[0m
 [0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala:3: object github is not a member of package com[0m
 [0m[[31merror[0m] [0mimport com.github.tototoshi.csv._[0m
 [0m[[31merror[0m] [0m           ^[0m
@@ -83,6 +46,6 @@
 [0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala:20: not found: value CSVWriter[0m
 [0m[[31merror[0m] [0m    val writer = CSVWriter.open(fileName)[0m
 [0m[[31merror[0m] [0m                 ^[0m
-[0m[[31merror[0m] [0m15 errors found[0m
+[0m[[31merror[0m] [0m6 errors found[0m
 [0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
 [0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) Compilation failed[0m
