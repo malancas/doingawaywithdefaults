@@ -1,6 +1,6 @@
 package Sentence
 
-class Sentence(sentenceInfo: List[String]) {
+class Sentence(sentenceInfo: Vector[String]) {
   val language:String = sentenceInfo.head
   val inflection:String = sentenceInfo(1)
   val sentenceStr:String = sentenceInfo(2)

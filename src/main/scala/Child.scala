@@ -1,20 +1,29 @@
 import Sentence.Sentence
 
-class Child(lr: Double, conslr: Double) {
+class Child(lr: Double, conslr: Double, sents: Vector[Sentence]) {
   val learningrate:Double = lr
-  val conservativerate: Double = conslr
+  val conservativerate:Double = conslr
+  val sentences:Vector[Sentence] = sents
 
   // child is fed a list containing [lang, inflec, sentencestring]
-  def consumeSentence(s: Sentence): Vector[Double] = {
+  def consumeSentences(i: Int, grammar: Vector[Double]): Vector[Double] = {
+    if (i == sentences.length) { grammar }
+    else {
+      val newGrammar = updateGrammar(grammar, sentences(i))
+      consumeSentences(i+1, newGrammar)
+    }
+  }
+
+  def updateGrammar(currGrammar: Vector[Double], s: Sentence): Vector[Double] = {
     (spEtrigger.tupled andThen hipEtrigger.tupled andThen hcpEtrigger.tupled andThen
       nsEtrigger.tupled andThen ntEtrigger.tupled andThen whmEtrigger.tupled andThen
       piEtrigger.tupled andThen tmEtrigger.tupled andThen VtoIEtrigger.tupled andThen
-      ahEtrigger)(Vector.fill(12)(0.5), s)
+      ahEtrigger.tupled)(currGrammar, s)
   }
 
   // etriggers for parameters
   // first parameter Subject Position
-  val spEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val spEtrigger = (grammar: Vector[Double]) => {
     // Check if O1 and S are in the sentence and sent is declarative
     if (s.sentenceVec.contains("01") && s.sentenceVec.contains("S") && s.inflection == "DEC"){
       val O1index = s.sentenceVec.indexOf("O1")
@@ -34,7 +43,7 @@ class Child(lr: Double, conslr: Double) {
   }
 
   // second parameter Head IP, VP, PP, etc
-  val hipEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val hipEtrigger = (grammar: Vector[Double]) => {
     if (s.sentenceVec.contains("03") && s.sentenceVec.contains("P")){
       val O3index = s.sentenceVec.indexOf("O3")
       val Pindex = s.sentenceVec.indexOf("P")
@@ -60,7 +69,7 @@ class Child(lr: Double, conslr: Double) {
     else { grammar }
   }
 
-  val hcpEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val hcpEtrigger = (grammar: Vector[Double]) => {
     if (s.inflection == "Q"){
       val kaIndex = s.sentenceVec.indexOf("ka")
       if (s.sentenceVec.last == "ka" || (kaIndex == -1 && s.sentenceVec.last == "Aux")){
@@ -74,23 +83,23 @@ class Child(lr: Double, conslr: Double) {
     else { grammar }
   }
 
-  val nsEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val nsEtrigger = (grammar: Vector[Double]) => {
     val outObliqueResult = s.outOblique()
     if (outObliqueResult.isEmpty) {
       println("Illegal sentence structure"); System.exit(1)
     }
     val sInSentence = s.sentenceStr.contains("S")
 
-    if (s.inflection == "DEC" && (!sInSentence && outObliqueResult.get)){
+    if (s.inflection == "DEC" && (!sInSentence && outObliqueResult.getOrElse(true))){
       adjustweight(grammar, 4, 1, learningrate)
     }
-    else if (s.inflection == "DEC" && (sInSentence && outObliqueResult.get)){
+    else if (s.inflection == "DEC" && (sInSentence && outObliqueResult.getOrElse(true))){
       adjustweight(grammar, 4, 0, conservativerate)
     }
     else { grammar }
   }
 
-  val ntEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val ntEtrigger = (grammar: Vector[Double]) => {
     val O2inSentence = s.sentenceStr.contains("O2")
     val O1inSentence = s.sentenceStr.contains("O1")
 
@@ -105,7 +114,7 @@ class Child(lr: Double, conslr: Double) {
     else { grammar }
   }
 
-  val whmEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val whmEtrigger = (grammar: Vector[Double]) => {
     if (s.inflection == "Q" && s.sentenceStr.contains("+WH")){
       if (s.sentenceVec.head.contains("+WH") ||
         (s.sentenceVec.head == "P" && s.sentenceVec(1) == "O3[+WH]")){
@@ -118,7 +127,7 @@ class Child(lr: Double, conslr: Double) {
     else { grammar }
   }
 
-  val piEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val piEtrigger = (grammar: Vector[Double]) => {
     val pIndex = s.sentenceVec.indexWhere(_.contains("P"))
     val O3index = s.sentenceVec.indexWhere(_.contains("O3"))
 
@@ -134,7 +143,7 @@ class Child(lr: Double, conslr: Double) {
     else { grammar }
   }
 
-  val tmEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val tmEtrigger = (grammar: Vector[Double]) => {
     if (s.sentenceStr.contains("[+WA]")){
       adjustweight(grammar, 8, 1, learningrate)
     }
@@ -149,7 +158,7 @@ class Child(lr: Double, conslr: Double) {
     }
   }
 
-  val VtoIEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val VtoIEtrigger = (grammar: Vector[Double]) => {
     val verbIndex = s.sentenceVec.indexWhere(_.contains("Verb"))
     val O1index = s.sentenceVec.indexWhere(_.contains("O1"))
 
@@ -165,7 +174,7 @@ class Child(lr: Double, conslr: Double) {
     else { grammar }
   }
 
-  val ItoCEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val ItoCEtrigger = (grammar: Vector[Double]) => {
     val sp = grammar.head
     val hip = grammar(1)
     val hcp = grammar(2)
@@ -220,7 +229,7 @@ class Child(lr: Double, conslr: Double) {
     else { grammar }
   }
 
-  val ahEtrigger = (grammar: Vector[Double], s: Sentence) => {
+  val ahEtrigger = (grammar: Vector[Double]) => {
     if (s.inflection == "DEC" || s.inflection == "Q") {
       if (!s.sentenceStr.contains("Aux") && s.sentenceStr.contains("Never")){
         if (s.sentenceStr.contains("Verb") && s.sentenceStr.contains("O1")) {
