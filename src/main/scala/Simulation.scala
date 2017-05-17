@@ -44,7 +44,7 @@ object Simulation {
         System.exit(1)
       }
 
-      val sentences = createLD("english", "EngFrJapGerm.txt")
+      val sentences = createLD("english")
       //val res = new Results(s"$language-simulation-output.csv")
 
       println("Starting simulation")

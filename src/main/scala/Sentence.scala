@@ -1,10 +1,10 @@
 package Sentence
 
 class Sentence(sentenceInfo: Vector[String]) {
-  val language:String = sentenceInfo.head
-  val inflection:String = sentenceInfo(1)
-  val sentenceStr:String = sentenceInfo(2)
-  val sentenceVec:Vector[String] = sentenceInfo(2).split(" ").toVector
+  var language:String = _
+  var inflection:String = _
+  var sentenceStr:String = _
+  var sentenceVec:Vector[String] = _
 
   // Checks if something other than subject has been  topicalized ie. moved
   // out of canonical argument order. Not checking for presence of Adv
@@ -28,4 +28,15 @@ class Sentence(sentenceInfo: Vector[String]) {
     // Should never reach here
     else { None }
   }
+}
+
+object Sentence {
+    def apply(sentenceInfo: Vector[String]): Sentence = {
+        var s = new Sentence
+        s.language = sentenceInfo.head
+        s.inflection = sentenceInfo(1)
+        s.sentenceStr = sentenceInfo(2)
+        s.sentenceVec = sentenceInfo(2).split(" ").toVector
+        s
+    }
 }

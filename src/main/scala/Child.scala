@@ -3,9 +3,9 @@ package Child
 import Sentence.Sentence
 
 class Child(lr: Double, conslr: Double, sents: Vector[Sentence]) {
-  val learningrate:Double = lr
-  val conservativerate:Double = conslr
-  val sentences:Vector[Sentence] = sents
+  var learningrate:Double = _
+  var conservativerate:Double = _
+  var sentences:Vector[Sentence] = _
 
   // child is fed a list containing [lang, inflec, sentencestring]
   def consumeSentences(i: Int, grammar: Vector[Double]): Vector[Double] = {
@@ -265,5 +265,15 @@ class Child(lr: Double, conslr: Double, sents: Vector[Sentence]) {
       val new_value = paramVal + rate * (1 - paramVal)
       grammar.updated(paramIndex, new_value)
     }
+  }
+}
+
+object Child {
+  def apply(lr: Double, conslr: Double, sents: Vector[Sentence]): Sentence = {
+    var c = new Child
+    c.learningrate = lr
+    c.conservativerate = conslr
+    c.sentences = sents
+    c
   }
 }
