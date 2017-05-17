@@ -10,7 +10,7 @@ object Simulation {
   val learningrate = 0.002
   val conservativerate = 0.001
 
-  def createLD(language: String, sentencesFileName: String): Vector[Vector[String]] = {
+  def createLD(language: String): Vector[Sentence] = {
     val languageHash = HashMap("english" -> "611",
       "french" -> "584", "german" -> "2253", "japanese" -> "3856")
     val langNum = languageHash.get(language)

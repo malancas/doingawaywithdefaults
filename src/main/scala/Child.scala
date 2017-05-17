@@ -1,3 +1,5 @@
+package Child
+
 import Sentence.Sentence
 
 class Child(lr: Double, conslr: Double, sents: Vector[Sentence]) {
