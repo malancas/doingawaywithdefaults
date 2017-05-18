@@ -1,1 +1,1 @@
-Scala port of the collaborative work being done on kghowitt's original doingawaywithdefaults repository
+Scala port of the collaborative work being done on the original [doingawaywithdefaults](https://github.com/kghowitt/doingawaywithdefaults.git) repository hosted by [kghowitt](https://github.com/kghowitt)
