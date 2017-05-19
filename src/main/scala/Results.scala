@@ -16,7 +16,7 @@ class Results(file: String) {
     writer.close()
   }
 
-  def writeResults(grammars: List[String]): Unit = {
+  def writeResults(grammars: Vector[Vector[Double]]): Unit = {
     val writer = CSVWriter.open(fileName)
   }
 }
