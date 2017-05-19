@@ -1,4 +1,4 @@
-//import results.Results
+import Results.Results
 import scala.collection.immutable.HashMap
 import scala.io.Source
 import scala.util.Random

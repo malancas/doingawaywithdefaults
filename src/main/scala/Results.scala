@@ -1,4 +1,4 @@
-package results
+package Results
 
 import com.github.tototoshi.csv._
 
