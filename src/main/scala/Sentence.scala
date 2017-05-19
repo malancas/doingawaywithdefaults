@@ -29,14 +29,3 @@ class Sentence(sentenceInfo: Vector[String]) {
     else { None }
   }
 }
-
-object Sentence {
-    def apply(sentenceInfo: Vector[String]): Sentence = {
-        var s = new Sentence
-        s.language = sentenceInfo.head
-        s.inflection = sentenceInfo(1)
-        s.sentenceStr = sentenceInfo(2)
-        s.sentenceVec = sentenceInfo(2).split(" ").toVector
-        s
-    }
-}

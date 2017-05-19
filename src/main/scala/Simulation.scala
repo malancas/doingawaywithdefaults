@@ -19,19 +19,16 @@ object Simulation {
             .fromFile("EngFrJapGerm.txt")
             .getLines.map{line => line.split('\t').toVector}
             .filter(l => l(0) == "611")
-            .map(l => Sentence(l))
+            .map(l => new Sentence(l))
             .toVector
   }
 
-  def makeGrammars(i: Int, numLearners: Int, numSentences: Int, allSentences: Vector[Sentence]): List[Vector[Double]] = {
-    if (i == numLearners) { List() }
-    else {
-      // Get random sentences for Child
-      val sentences = Random.shuffle(allSentences).take(numSentences)
-      val c = Child(learningrate, conservativerate, sentences)
-      c.consumeSentences(0, Vector.fill(12)(0.5)) :+ makeGrammars(i+1, numLearners)
+  def makeGrammars(numLearners: Int, numSentences: Int, sentences: Vector[Sentence]):
+  Vector[Vector[Double]] = {
+      val c = new Child(learningrate, conservativerate)
+      Vector.fill(numLearners)(c.consumeSentences(0, Vector.fill(12)(0.5),
+      Random.shuffle(sentences).take(numSentences)))
     }
-  }
 
   def main(args: Array[String]) {
     try {
@@ -49,7 +46,7 @@ object Simulation {
 
       println("Starting simulation")
 
-      val results = makeGrammars(0, numLearners, numSentences, sentences)
+      val results = makeGrammars(numLearners, numSentences, sentences)
     }
 
     catch { case e: java.lang.NumberFormatException =>
