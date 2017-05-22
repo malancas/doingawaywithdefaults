@@ -1,51 +1,41 @@
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
 [0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
-[0m[[0mdebug[0m] [0m[naha] 	added: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] 	added: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala)[0m
 [0m[[0mdebug[0m] [0m[naha] 	modified: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Simulation.scala)[0m
 [0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Simulation.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Simulation.scala)[0m
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Simulation.scala)[0m
-[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Simulation.scala)[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Simulation.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Results.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Sentence.scala, /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Simulation.scala)[0m
 [0m[[0mdebug[0m] [0m[naha] Recompiling all 4 sources: invalidated sources (4) exceeded 50.0% of all sources[0m
 [0m[[0minfo[0m] [0mCompiling 4 Scala sources to /home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/target/scala-2.10/classes...[0m
 [0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.13:component from component compiler for Scala 2.10.6[0m
 [0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.13:component from component compiler for Scala 2.10.6[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 699c739d, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 6c96ba1b, interfacing (CompilerInterface) with Scala compiler version 2.10.6[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
 [0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk/jre/classes:/home/malancas/.sbt/boot/scala-2.10.6/lib/scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
 [0m[[0mdebug[0m] [0m	/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/target/scala-2.10/classes[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:83: type mismatch;[0m
-[0m[[31merror[0m] [0m found   : Option[Boolean][0m
-[0m[[31merror[0m] [0m required: Boolean[0m
-[0m[[31merror[0m] [0m    if (s.inflection == "DEC" && (!sInSentence && outObliqueResult)){[0m
-[0m[[31merror[0m] [0m                                                  ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:86: type mismatch;[0m
-[0m[[31merror[0m] [0m found   : Option[Boolean][0m
-[0m[[31merror[0m] [0m required: Boolean[0m
-[0m[[31merror[0m] [0m    else if (s.inflection == "DEC" && (sInSentence && outObliqueResult)){[0m
-[0m[[31merror[0m] [0m                                                      ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Child.scala:9: value andThen is not a member of (Vector[Double], Sentence.Sentence) => Vector[Double][0m
-[0m[[31merror[0m] [0m    (spEtrigger andThen hipEtrigger andThen hcpEtrigger andThen[0m
-[0m[[31merror[0m] [0m                ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala:3: object github is not a member of package com[0m
+[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Results.scala:4: object github is not a member of package com[0m
 [0m[[31merror[0m] [0mimport com.github.tototoshi.csv._[0m
 [0m[[31merror[0m] [0m           ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala:9: not found: value CSVWriter[0m
-[0m[[31merror[0m] [0m    val writer = CSVWriter.open(fileName)[0m
-[0m[[31merror[0m] [0m                 ^[0m
-[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/results.scala:20: not found: value CSVWriter[0m
-[0m[[31merror[0m] [0m    val writer = CSVWriter.open(fileName)[0m
-[0m[[31merror[0m] [0m                 ^[0m
-[0m[[31merror[0m] [0m6 errors found[0m
+[0m[[31merror[0m] [0m/home/malancas/Programming/Hunter/research/mfork-doingawaywithdefaults/src/main/scala/Results.scala:15: overloaded method value write with alternatives:[0m
+[0m[[31merror[0m] [0m  (x$1: String,x$2: Int,x$3: Int)Unit <and>[0m
+[0m[[31merror[0m] [0m  (x$1: Array[Char],x$2: Int,x$3: Int)Unit <and>[0m
+[0m[[31merror[0m] [0m  (x$1: Int)Unit <and>[0m
+[0m[[31merror[0m] [0m  (x$1: String)Unit <and>[0m
+[0m[[31merror[0m] [0m  (x$1: Array[Char])Unit[0m
+[0m[[31merror[0m] [0m cannot be applied to (String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String, String)[0m
+[0m[[31merror[0m] [0m    bw.write("SP", " ", "HIP", " ", "HCP", " ", "OPT", " ", "NS",[0m
+[0m[[31merror[0m] [0m       ^[0m
+[0m[[31merror[0m] [0mtwo errors found[0m
 [0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
 [0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) Compilation failed[0m

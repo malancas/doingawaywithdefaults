@@ -5,6 +5,7 @@ import Sentence.Sentence
 class Child(lr: Double, conslr: Double) {
   var learningrate:Double = _
   var conservativerate:Double = _
+  var threshold:Double = _
 
   // child is fed a list containing [lang, inflec, sentencestring]
   def consumeSentences(i: Int, grammar: Vector[Double],

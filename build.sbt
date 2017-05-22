@@ -1,13 +1,12 @@
 import Dependencies._
 
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
-      organization := "com.example",
-      scalaVersion := "2.12.2",
-      version      := "0.1.0-SNAPSHOT"
-    )),
-    name := "Hello",
-    libraryDependencies += scalaTest % Test
-    libraryDependencies += "com.github.tototoshi" %% "scala-csv" % "1.3.4"
-  )
+organization := "doingaway"
+
+scalaVersion := "2.12.2"
+
+version      := "0.1.0-SNAPSHOT"
+
+libraryDependencies ++= Seq(
+  scalaTest % Test,
+  "com.github.tototoshi" %% "scala-csv" % "1.3.4"
+)

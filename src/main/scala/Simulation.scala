@@ -50,6 +50,7 @@ object Simulation {
     }
 
     catch { case e: java.lang.NumberFormatException =>
-      println("Arguments one and two must be positive, valid integers"); System.exit(1)}
+      println("Arguments one and two must be positive, valid integers");
+      System.exit(1)}
   }
 }
