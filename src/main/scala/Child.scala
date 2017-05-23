@@ -7,13 +7,29 @@ class Child(lr: Double, conslr: Double) {
   var conservativerate:Double = _
   var threshold:Double = _
 
-  // child is fed a list containing [lang, inflec, sentencestring]
-  def consumeSentences(i: Int, grammar: Vector[Double],
+  def checkIfThresholdMet(i: Int, grammar: Vector[Double],
+    thresholdVec: Vector[Double], sentenceNum: Int): Vector[Double] = {
+      if (i == 12) { thresholdVec }
+      else {
+        if (thresholdVec(i) < 0 && (grammar(i) <= threshold || grammar(i) >= (1-threshold))) {
+          checkIfThresholdMet(i+1, grammar, thresholdVec.updated(i, sentenceNum), sentenceNum)
+        }
+        else {
+          checkIfThresholdMet(i+1, grammar, thresholdVec, sentenceNum)
+        }
+      }
+  }
+
+  // Child is fed a list containing [lang, inflec, sentencestring]
+  def consumeSentences(i: Int, grammar: Vector[Double], thresholdVec: Vector[Double]
     sentences: Vector[Sentence]): Vector[Double] = {
     if (i == sentences.length) { grammar }
     else {
       val newGrammar = updateGrammar(grammar, sentences(i))
-      consumeSentences(i+1, newGrammar, sentences)
+
+      // Check if threshold has been met every time a sentence is processed
+      val newThresholdVec = checkIfThresholdMet(0, grammar, thresholdVec, i)
+      consumeSentences(i+1, newGrammar, newThresholdVec, sentences)
     }
   }
 
@@ -28,7 +44,7 @@ class Child(lr: Double, conslr: Double) {
   // first parameter Subject Position
   val spEtrigger = (grammar: Vector[Double], s: Sentence) => {
     // Check if O1 and S are in the sentence and sent is declarative
-    if (s.sentenceVec.contains("01") && s.sentenceVec.contains("S") && s.inflection == "DEC"){
+    if (s.sentenceVec.contains("O1") && s.sentenceVec.contains("S") && s.inflection == "DEC"){
       val O1index = s.sentenceVec.indexOf("O1")
       // Make sure O1 is non-sentence-initial and before S
       if (O1index > 0 && O1index < s.sentenceVec.indexOf("S")){

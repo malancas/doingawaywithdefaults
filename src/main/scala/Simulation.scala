@@ -27,7 +27,7 @@ object Simulation {
   Vector[Vector[Double]] = {
       val c = new Child(learningrate, conservativerate)
       Vector.fill(numLearners)(c.consumeSentences(0, Vector.fill(12)(0.5),
-      Random.shuffle(sentences).take(numSentences)))
+      Vector.fill(12)(-1), Random.shuffle(sentences).take(numSentences)))
     }
 
   def main(args: Array[String]) {
